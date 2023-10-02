@@ -6,6 +6,7 @@ let manoDeObra = 1.25;
 function calcularValorRiego () {
 
     let continuar = true;
+    
     while (continuar) {
         let largoTerreno = parseInt(prompt("Ingrese el largo del terreno en metros:"));
         let anchoTerreno = parseInt(prompt("Ingrese el ancho del terreno en metros:"));
@@ -18,7 +19,27 @@ function calcularValorRiego () {
         let respuesta = prompt("Desea cotizar el valor de otro riego? Indique 'S' o 'N'.");
 
         if (respuesta !== "S") {
-            continuar = false;  
+            continuar = false;
+            let respuestaCuotas = prompt("Desea averiguar el costo en cuotas? Indique 'S' o 'N'.");
+            if (respuestaCuotas == "S") {
+                let cantCuotas = parseInt(prompt("Indique la cantidad de cuotas disponibles (3, 6, 9, 12)"));
+                switch (cantCuotas) {
+                    case 3: 
+                        alert("El valor de cada cuota es de " + (valorRiego/3) + " Ars.");
+                        break;                
+                    case 6: 
+                        alert("El valor de cada cuota es de " + (valorRiego/6) + " Ars.");
+                        break;                
+                    case 9: 
+                        alert("El valor de cada cuota es de " + (valorRiego/9) + " Ars.");
+                        break;                
+                    case 12: 
+                        alert("El valor de cada cuota es de " + (valorRiego/12) + " Ars.");
+                        break;
+                    default:
+                        alert("Indique un numero de cuotas disponibles (3, 6, 9, 12).");
+                }
+            } 
         }
     }
 }
